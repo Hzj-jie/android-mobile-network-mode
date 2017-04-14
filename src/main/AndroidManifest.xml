@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.gemini.mobile_network_mode"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="3" />
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"
+                     xmlns:tools="http://schemas.android.com/tools"
+                     tools:ignore="ProtectedPermissions" />
+    <application android:icon="@drawable/blank">
+        <activity android:name=".Enable4GActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:label="Enable 4G"
+            android:noHistory="true"
+            android:excludeFromRecents="true"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name=".Enable4GActivity" />
+                <action android:name="android.intent.action.MAIN" /> 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Enable3GActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:label="Enable 3G"
+            android:noHistory="true"
+            android:excludeFromRecents="true"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name=".Enable3GActivity" />
+                <action android:name="android.intent.action.MAIN" /> 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Enable2GActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:label="Enable 2G"
+            android:noHistory="true"
+            android:excludeFromRecents="true"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name=".Enable2GActivity" />
+                <action android:name="android.intent.action.MAIN" /> 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MobileNetworkActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:label="MobileNetwork Mode Chooser"
+            android:noHistory="true"
+            android:excludeFromRecents="true"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name=".MobileNetworkActivity" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="mobile-network-mode"
+                      android:host="org.gemini.mobile-network-mode"
+                      android:pathPattern=".*" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
