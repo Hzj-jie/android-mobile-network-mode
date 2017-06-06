@@ -76,21 +76,40 @@ public class MobileNetworkActivity extends Activity
         }
         else
         {
-            Log.e(TAG, "Failed: " +
-                "None of the modes can be applied to the system.");
+            Log.e(TAG,
+                  "Failed: " +
+                  "None of the modes can be applied to the system.");
         }
     }
 
     private boolean execute(int method, int[] types)
     {
+        int current_type;
         try
         {
-            Log.w(TAG, "Current type: " +
-                (Integer)(method == 0 ? report1() : report2()));
+            current_type = (Integer)(method == 0 ? report1() : report2());
         }
         catch (Exception ex)
         {
-            Log.e(TAG, "Failed to retrieve current type: " + ex.toString());
+            Log.e(TAG,
+                  "Failed to retrieve current type by using mode " +
+                  method +
+                  ": " +
+                  ex.toString());
+            return false;
+        }
+        Log.w(TAG, "Current type: " + current_type);
+
+        for (final int type : types)
+        {
+            if (type == current_type)
+            {
+                Log.w(TAG,
+                      "The required type " +
+                      type +
+                      " has already been applied.");
+                return true;
+            }
         }
 
         for (final int type : types)
